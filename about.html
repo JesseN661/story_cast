@@ -1,1 +1,244 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>About and Accessibility | StoryCast</title><link rel="stylesheet" href="css/main.css"><script defer src="js/main.js"></script></head><body><a class="skip-link" href="#main">Skip to main content</a><header class="site-header"><a class="brand" href="index.html">StoryCast<span>.</span></a><button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><nav id="primary-nav" class="site-nav" data-open="false" aria-label="Main navigation"><a href="index.html">Home</a><a href="story/story-1.html">Stories</a><a aria-current="page" href="about.html">About / Access</a></nav></header><main id="main" class="page"><p class="eyebrow">The thinking behind StoryCast</p><h1>Stories should be for everyone.</h1><p class="lead">StoryCast is a learning project exploring how clear design and accessible media can make digital storytelling easier to experience.</p><div class="cards"><article class="panel"><h2>Human first</h2><p>Content is organised around clear stories, straightforward navigation, and plain language.</p></article><article class="panel"><h2>Access built in</h2><p>Captions, a transcript, keyboard access, visible focus, and responsive layouts are part of the design.</p></article><article class="panel"><h2>Honest storytelling</h2><p>Fictional examples are labelled clearly. Published stories should distinguish verified facts from creative interpretation.</p></article></div><section class="panel"><h2>Accessibility checklist</h2><ul><li>Semantic landmarks and logical heading structure</li><li>Skip link and keyboard-operable navigation</li><li>Visible keyboard focus indicators</li><li>Captions and transcript for the featured story</li><li>Responsive Grid and Flexbox layouts</li><li>Colour contrast designed toward WCAG AA targets</li><li>ARIA only where native HTML needs support</li></ul><p class="notice">These are implementation goals, not formal WCAG certification. Test the final site with keyboard navigation, browser zoom, automated tools, and assistive technology.</p></section><section class="panel"><h2>Contact</h2><p>This student project does not currently send messages to a server. Add a verified contact address or connect a form service before publishing a working contact form.</p></section></main><footer><b>StoryCast.</b><p>Stories for curious minds.</p><a href="index.html">Back home</a></footer></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Learn about StoryCast's mission to explore agriculture, technology, and youth employment in Rwanda."
+  >
+
+  <title>Our Mission and Accessibility | StoryCast</title>
+
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-logo" href="index.html">STORYCAST</a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
+        Menu
+      </button>
+
+      <nav
+        class="site-nav"
+        id="primary-nav"
+        aria-label="Main navigation"
+        data-open="false"
+      >
+        <ul class="site-nav__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#stories">Stories</a></li>
+          <li>
+            <a href="about.html" aria-current="page">
+              Our Mission
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="about-title">
+      <div class="container">
+        <p class="eyebrow">Why StoryCast exists</p>
+
+        <h1 id="about-title">
+          Helping young people see the opportunity in agriculture.
+        </h1>
+
+        <p class="hero__description">
+          StoryCast uses storytelling to explore how agricultural
+          skills, technology, and entrepreneurship could help
+          young people in Rwanda pursue new livelihood
+          opportunities.
+        </p>
+      </div>
+    </section>
+
+    <section class="section about-section"
+             aria-labelledby="challenge-title">
+      <div class="container">
+        <h2 id="challenge-title">
+          The challenge we want to address
+        </h2>
+
+        <p>
+          Youth unemployment is a complex challenge that cannot
+          be solved by one sector or intervention alone.
+          Agriculture offers several possible pathways,
+          including farming, agribusiness, processing,
+          distribution, marketing, and technology-enabled
+          services.
+        </p>
+
+        <p>
+          Yet some young people may see agriculture as
+          traditional work with limited opportunities.
+          StoryCast aims to broaden that conversation by
+          showing the range of skills and business activities
+          connected to the sector.
+        </p>
+
+        <p>
+          These opportunities depend on practical conditions,
+          including training, resources, access to finance,
+          infrastructure, and markets. Stories should
+          encourage exploration while recognizing these
+          challenges.
+        </p>
+      </div>
+    </section>
+
+    <section class="section"
+             aria-labelledby="mission-title">
+      <div class="container">
+        <p class="eyebrow">Our mission</p>
+
+        <h2 id="mission-title">
+          Connect young people with agricultural opportunity.
+        </h2>
+
+        <p>
+          The broader mission behind StoryCast is to help
+          reduce youth unemployment in Rwanda by encouraging
+          young people to explore agriculture and technology,
+          develop practical skills, and find pathways into
+          agricultural employment or entrepreneurship.
+        </p>
+
+        <h3>What this mission could involve</h3>
+
+        <ul class="mission-list">
+          <li>
+            Agricultural training that builds practical,
+            relevant skills.
+          </li>
+          <li>
+            Introducing young people to digital tools and
+            technology that address agricultural needs.
+          </li>
+          <li>
+            Mentorship and guidance for people exploring
+            agricultural businesses.
+          </li>
+          <li>
+            Connections to employers, farmers, agricultural
+            organizations, and potential markets.
+          </li>
+          <li>
+            Stories that help young people learn about
+            different career and entrepreneurship paths.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section about-section"
+             aria-labelledby="accessibility">
+      <div class="container">
+        <p class="eyebrow">Inclusive by design</p>
+
+        <h2 id="accessibility">
+          Accessibility matters
+        </h2>
+
+        <p>
+          StoryCast should be usable by people with different
+          abilities, devices, and content preferences.
+          Accessibility is part of the design and development
+          process, not an afterthought.
+        </p>
+
+        <div class="story-grid">
+          <article class="story-card">
+            <div class="story-card__content">
+              <h3>Captions</h3>
+              <p>
+                Videos should provide synchronized captions
+                for dialogue and meaningful audio.
+              </p>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <div class="story-card__content">
+              <h3>Transcripts</h3>
+              <p>
+                Written transcripts provide an alternative
+                way to access the spoken story.
+              </p>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <div class="story-card__content">
+              <h3>Keyboard access</h3>
+              <p>
+                Navigation and interactive controls should
+                work without requiring a mouse.
+              </p>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <div class="story-card__content">
+              <h3>Readable design</h3>
+              <p>
+                Clear headings, sufficient contrast, and
+                responsive layouts help visitors navigate
+                the content.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section"
+             aria-labelledby="next-title">
+      <div class="container">
+        <h2 id="next-title">Explore the story</h2>
+
+        <p>
+          Discover how agricultural skills, innovation, and
+          collaboration could open new possibilities for
+          young people.
+        </p>
+
+        <a class="button" href="story/story-1.html">
+          Read the featured story
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="site-logo" href="index.html">STORYCAST</a>
+
+      <p>
+        Growing conversations about agriculture and
+        youth opportunity in Rwanda.
+      </p>
+
+      <a href="index.html">Return home</a>
+    </div>
+  </footer>
+</body>
+</html>

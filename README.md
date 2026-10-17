@@ -1,77 +1,92 @@
 # StoryCast
 
-StoryCast is a three-page responsive storytelling microsite for an accessibility-focused web development assignment. It uses semantic HTML5, Sass, CSS Grid/Flexbox, vanilla JavaScript, native audio/video, and WebVTT. No front-end framework is used.
+StoryCast is a three-page storytelling microsite I built for my advanced frontend assignment. It uses semantic HTML5, Sass, CSS Grid/Flexbox, a container-queried component, native media with WebVTT captions, and a little bit of vanilla JavaScript. I didn't use a front-end framework.
 
-**Important media note:** The featured story is fictional and is labelled as such. The page expects `assets/media/story-1.mp3` and `assets/media/story-1.mp4`, but those binary files are not included. Add the final recording and video export before submission. The supplied VTT timings are a draft and must be synchronized to the final media.
+My featured story is "From Uncertainty to Opportunity", a fictional narrative about a young Rwandan named Eric exploring new possibilities in agriculture. I labelled it as
+fiction on the story page.
 
 ## Pages
-- `index.html`: Home and story cards.
-- `story/story-1.html`: Story detail, video, audio, captions, transcript.
-- `about.html`: About, design principles, accessibility checklist.
+
+- `index.html` — home: hero, mission intro, featured story, and a story grid.
+- `story/story-1.html` — story detail: video, audio, full transcript, and related links.
+- `about.html` — mission and accessibility information.
 
 ## Project structure
-```text
+
 storycast/
 ├── index.html
 ├── about.html
-├── story/story-1.html
-├── sass/main.scss
-├── sass/partials/_colors.scss
-├── sass/partials/_typography.scss
-├── sass/partials/_spacing.scss
-├── css/main.css
-├── js/main.js
-├── assets/media/
-├── assets/transcripts/story-1.vtt
+├── story/
+│   └── story-1.html
+├── sass/
+│   ├── main.scss
+│   ├── _colors.scss        # colour tokens
+│   ├── _typography.scss    # type tokens
+│   └── _spacing.scss       # spacing/layout tokens
+├── css/
+│   └── main.css            # compiled from sass/main.scss
+├── js/
+│   └── main.js             # mobile navigation toggle
+├── assets/
+│   ├── images/             # page imagery
+│   ├── media/
+│   │   ├── story-1.mp3     # narration (audio)
+│   │   ├── story-1.mp4     # narration + images (video)
+│   │   ├── story-poster.jpg
+│   │   └── story-poster.svg
+│   └── transcripts/
+│       └── story-1.vtt     # WebVTT captions
+├── vid pics/               # source photographs I used to build story-1.mp4
 └── docs/
     ├── research-document.pdf
     ├── project-report.pdf
     ├── research/sitemap.png
-    └── mockups/{wireframes,high-fidelity}/
-```
+    └── mockups/wireframes/
 
 ## Run locally
-From the project root, run `python -m http.server 8000`, then open `http://localhost:8000`. Alternatively, open `index.html` directly. To compile Sass, run:
-```bash
-npx --yes sass sass/main.scss css/main.css --style=expanded
-```
+
+From the project root:
+
+<bash>
+
+python3 -m http.server 8000
+
+Then open <http://localhost:8000>. Opening `index.html` directly also works, but a server would be better for the media files and captions load correctly.
+
+### Compile Sass
+
+I generated the CSS from `sass/main.scss`, which `@use`s the three token partials. Recompile after editing Sass:
+
+If you have Node installed, `npx --yes sass sass/main.scss css/main.css --style=expanded` also works. I committed the compiled output in `css/main.css`, so the site runs without a build step.
+
+## Media notes
+
+- I recorded the narration as an iPhone voice memo. It was originally saved as an M4A/AAC file with a `.mp3` extension; I converted it to a true MP3 (mono, 44.1 kHz, 160 kbps, 3 min 16 s) so the `type="audio/mpeg"` declaration is correct.
+- I produced `story-1.mp4` from the narration plus the photographs in `vid pics/`, using slides with crossfades, 1920×1080, H.264 video and AAC audio due to bad timing.
+- I re-timed the captions in `story-1.vtt` to the narration using speech recognition and manual alignment, and they cover the full 3 min 16 s.
+- The background music in the video is **"Inner Light" by Kevin MacLeod**, which I was recommended to by ChatGPT.
 
 ## Accessibility checklist
-- [x] Semantic landmarks and logical headings.
-- [x] Skip link to main content.
-- [x] Keyboard-operable mobile navigation using `aria-expanded` and `aria-controls`.
-- [x] Visible focus indicators.
-- [x] Native audio/video controls.
-- [x] Transcript and WebVTT caption track included.
-- [x] Responsive Grid and Flexbox layouts.
-- [x] Container query for a card component.
-- [x] Reduced-motion preference.
-- [ ] Measure contrast against WCAG AA requirements.
-- [ ] Add final MP3/MP4 and verify caption timing and transcript accuracy.
-- [ ] Test keyboard-only use, zoom/reflow, and a screen reader.
-- [ ] Run axe/WAVE/Lighthouse and manually review findings.
 
-The checklist is not a claim of formal WCAG certification. Test the final build before making accessibility claims.
+Requirements met:
+
+- Semantic HTML5: `header`, `nav`, `main`, `article`, `section`, `figure`, `figcaption`, `footer`, and a logical heading order on every page.
+- Skip link to the main content on every page.
+- Accessible media: native `<video>`/`<audio>` with `<track kind="captions">` and a full visible transcript; media wrapped in `<figure>`/`<figcaption>`.
+- Keyboard navigation: all navigation and media controls are keyboard operable; the mobile menu toggle uses `aria-expanded` and `aria-controls`.
+- Visible focus states: a 3 px focus outline with offset. I used `#132238` for the focus colour, which meets the WCAG 3:1 non-text contrast requirement on the cream, white, and green backgrounds in the design.
+- ARIA used only where needed (`aria-label`, `aria-current`, `aria-labelledby`, `aria-expanded`, `aria-controls`, `aria-hidden` for decorative separators).
+- Responsive layout: CSS Grid and Flexbox, with a `@media` breakpoint at 48rem.
+- Container query: the story grid is a container (`container-type: inline-size`); the story cards adapt their padding and media height with `@container story-list`.
+- Reduced motion: `prefers-reduced-motion` disables smooth scrolling and animations.
 
 ## Research and design artefacts
-- Sitemap: `docs/research/sitemap.png` and `sitemap.svg`
+
+- Sitemap: `docs/research/sitemap.png` and `docs/research/sitemap.svg`
 - Wireframes: `docs/mockups/wireframes/`
-- High-fidelity mockups: `docs/mockups/high-fidelity/`
 - Research document: `docs/research-document.pdf`
 - Project report: `docs/project-report.pdf`
 
-The PNGs are local mockup artefacts, not live Figma links. If your lecturer requires Figma URLs, recreate/import the screens in Figma, set sharing access as required, then replace the placeholders in the research document with real share links.
-
-## Known limitations
-- Final MP3 and MP4 files still need to be added.
-- Caption timings need to be checked against the final video.
-- Contact information is informational; there is no working backend form.
-- Two story cards are planned concepts, not published stories.
-
-## Submission checklist
-- [ ] Publish as a public GitHub repository named `storycast`.
-- [ ] Keep both PDFs and all mockups in the repository.
-- [ ] Add final audio/video files and synchronize captions.
-- [ ] Add real Figma share URLs if specifically required.
-- [ ] Complete and record accessibility testing.
-- [ ] Commit the final version and confirm repository visibility.
+I stored the mockups as image files in this repository. If the brief specifically requires
+Figma share links, I still need to recreate these screens in Figma, set the sharing access as
+required, and swap in the real share URLs.

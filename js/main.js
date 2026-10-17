@@ -1,1 +1,25 @@
-(function(){'use strict';document.documentElement.classList.add('js');var toggle=document.querySelector('.nav-toggle');var nav=document.querySelector('#primary-nav');if(!toggle||!nav)return;toggle.addEventListener('click',function(){var open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));nav.setAttribute('data-open',String(!open));});})();
+
+(function () {
+  "use strict";
+
+  document.documentElement.classList.add("js");
+
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector("#primary-nav");
+
+  if (!toggle || !nav) {
+    return;
+  }
+
+  toggle.addEventListener("click", function () {
+    const isExpanded =
+      toggle.getAttribute("aria-expanded") === "true";
+
+    toggle.setAttribute(
+      "aria-expanded",
+      String(!isExpanded)
+    );
+
+    nav.setAttribute("data-open", String(!isExpanded));
+  });
+})();
